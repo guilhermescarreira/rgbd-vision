@@ -60,3 +60,13 @@ The code is modularized by project phase. For example, to run the final out-of-p
 cd part3
 python main3.py <path_to_reference_directory> <path_to_sequence_directory> <path_to_output_directory>
 ```
+
+or simply
+
+```Bash
+cd part3
+python main3.py
+```
+
+## Limitations & Future Work
+* **Homography Chaining:** Currently, Part 1 matches all sequence frames directly to the reference image. In cases of extreme perspective shifts, SIFT feature matching degrades. Future iterations will implement sequential matching (matching $I_t$ to $I_{t-1}$) and matrix multiplication chaining to maintain robust tracking across wider baseline movements.
