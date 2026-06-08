@@ -35,14 +35,19 @@ The final module utilizes the rigid 3D transformations obtained in Part 2 to cle
 ##  Repository Structure
 
 ```text
+├── assets/
+│   └── movie_output.gif           # Result visualizations
+├── notebooks/
+│   └── check_protocol_task2.ipynb # 3D point cloud visual debugger
 ├── part1/
-│   ├── main1.py           # SIFT detection and 2D Homography
-│   ├── ...                # Image assets and output directories
+│   ├── data/                      # 2D sequence inputs
+│   ├── main1.py                   # SIFT extraction and orchestration
+│   └── part1.py                   # 2D Homography, RANSAC, and SVD engine
 ├── part2/
-│   ├── main2.py           # 3D Procrustes Analysis and Optical Flow
-│   ├── ...                # Depth mappings and point cloud viz
+│   ├── data/                      # RGB-D sequence and template inputs
+│   └── main2.py                   # 3D Procrustes Analysis and Rigid Transformations
 ├── part3/
-│   ├── main3.py           # 3D Plane fitting, occlusion removal, and splatting
+│   └── main3.py                   # 3D Plane fitting, occlusion removal, and splatting
 └── README.md
 ```
 
