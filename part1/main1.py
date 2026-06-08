@@ -16,9 +16,9 @@ def main():
     if len(sys.argv) == 1:
         print("No arguments provided. Using default dataset paths...")
         path_to_refimg = "data/capture_ref.jpg"
-        path_images_dir = "data/capture_images.jpg"
-        path_feature_dir = "data/capture_features.jpg"
-        path_output_dir = "data/capture_outputs.jpg"
+        path_images_dir = "data/capture_images"
+        path_feature_dir = "data/capture_features"
+        path_output_dir = "data/capture_output"
         
     elif len(sys.argv) == 5:
         path_to_refimg = sys.argv[1]

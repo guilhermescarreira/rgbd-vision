@@ -5,3 +5,6 @@
 # ignore output files
 **/*_features/
 **/*_output/
+
+# ignore python temporary files
+__pycache__/

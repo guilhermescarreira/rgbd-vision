@@ -36,6 +36,7 @@ The final module utilizes the rigid 3D transformations obtained in Part 2 to cle
 
 ```text
 ├── assets/
+│   ├── movie.gif                  # Input visualizations
 │   └── movie_output.gif           # Result visualizations
 ├── notebooks/
 │   └── check_protocol_task2.ipynb # 3D point cloud visual debugger
@@ -47,7 +48,10 @@ The final module utilizes the rigid 3D transformations obtained in Part 2 to cle
 │   ├── data/                      # RGB-D sequence and template inputs
 │   └── main2.py                   # 3D Procrustes Analysis and Rigid Transformations
 ├── part3/
+│   ├── data/                      # Cleaned output destination
 │   └── main3.py                   # 3D Plane fitting, occlusion removal, and splatting
+├── utils/
+│   └── make_gif.py                # Fast GIF generation utility
 └── README.md
 ```
 
@@ -57,6 +61,11 @@ The scripts rely heavily on standard scientific computing libraries. Ensure you 
 ```Bash
 pip install numpy scipy opencv-python matplotlib pillow
 ```
+
+## A Note on Datasets
+The original RGB-D dataset used to evaluate Part 3 (featuring heavy foreground obstructions over a planar surface) was hosted on a closed university server and is not included in this public repository. 
+
+The `plondres` (Praça de Londres) dataset provided in the `data/` folder serves as a structural placeholder. It allows the full 3D pipeline to execute without errors, demonstrating the architecture and mathematical implementations (Procrustes, RANSAC, Z-buffering), even though it lacks dramatic out-of-plane occlusions to filter.
 
 ## Execution
 The code is modularized by project phase. For example, to run the final out-of-plane object removal pipeline (Part 3), use the following terminal command from the root directory:
@@ -71,6 +80,17 @@ or simply
 ```Bash
 cd part3
 python main3.py
+```
+
+## Utilities
+If you are iterating on the pipeline and want to visualize a sequence of output frames (such as the homography warping in Part 1 or the occlusion removal in Part 3), a standalone, highly optimized GIF generator is included.
+
+Run it from the root directory, pointing it to your target image folder:
+```bash
+python utils/make_gif.py <path_to_image_folder> <output_filename.gif> [fps]
+
+# Example:
+# python utils/make_gif.py part1/data/capture_output assets/new_movie.gif 20
 ```
 
 ## Limitations & Future Work

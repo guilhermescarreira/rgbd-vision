@@ -12,7 +12,7 @@ def main():
     to a reference template using Orthogonal Procrustes and RANSAC.
     """
     # 1. Handle command-line arguments with defaults
-    if len(sys.argv == 1):
+    if len(sys.argv) == 1:
         print("No arguments provided. Using default dataset paths...")
         path_to_refimg = "data/plondres_template"
         path_images_dir = "data/plondres_sequence"
